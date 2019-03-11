@@ -1,0 +1,5 @@
+sudo echo "Hello World" >> /var/log/lab7.log
+
+
+##The crontab part to add when doing crontab -e, is
+##*/1 *  * * *   cdo     bash /home/cdo/scripts/lab7
