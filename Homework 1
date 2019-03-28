@@ -1,0 +1,82 @@
+
+ping -c1 8.8.8.8  1>/dev/null 2>/dev/null
+SUCCESS=$?
+
+echo Check /home/ubuntu/bruh.log
+
+if [ $SUCCESS -eq 0 ]
+then
+   echo "$(date)" ": The ip $HOST is online and has replied" >> /home/ubuntu/bruh.log
+else
+  echo "$(date)" ": The ip $HOST is offline and has not replied" >> /home/ubuntu/bruh.log
+  tail -2 /home/ubuntu/bruh.log | mail -s "BadPing" ubuntu@localhost.us-east-2.compute.internal
+
+fi
+#EOF
+
+cap=20
+
+current_latency=$(ping -c 4 8.8.8.8 | tail -1| awk -F '/' '{print $5}' | cut -d"." -f1)
+if [ $current_latency == 20.0 ]
+then
+        echo "$(date)" ": Latency is High" >> /home/ubuntu/bruh.log
+        tail -2 /home/ubuntu/bruh.log | mail -s "HighLatency" ubuntu@localhost.us-east-2.compute.internal
+else
+        echo "$(date)" ": Latency is normal" >> /home/ubuntu/bruh.log
+fi
+
+#######################################################################################################
+
+
+ping -c1 127.0.0.1  1>/dev/null 2>/dev/null
+SUCCESS=$?
+
+echo Check /home/ubuntu/bruh.log
+
+if [ $SUCCESS -eq 0 ]
+then
+   echo "$(date)" ": The ip $HOST is online and has replied" >> /home/ubuntu/bruh.log
+else
+  echo "$(date)" ": The ip $HOST is offline and has not replied" >> /home/ubuntu/bruh.log
+  tail -2 /home/ubuntu/bruh.log | mail -s "BadPing" ubuntu@localhost.us-east-2.compute.internal
+
+fi
+#EOF
+
+cap=20
+
+current_latency=$(ping -c 4 8.8.8.8 | tail -1| awk -F '/' '{print $5}' | cut -d"." -f1)
+if [ $current_latency == 20.0 ]
+then
+        echo "$(date)" ": Latency is High" >> /home/ubuntu/bruh.log
+        tail -2 /home/ubuntu/bruh.log | mail -s "HighLatency" ubuntu@localhost.us-east-2.compute.internal
+else
+        echo "$(date)" ": Latency is normal" >> /home/ubuntu/bruh.log
+fi
+############################################################################################################
+
+ping -c1 2.2.2.2  1>/dev/null 2>/dev/null
+SUCCESS=$?
+
+echo Check /home/ubuntu/bruh.log
+
+if [ $SUCCESS -eq 0 ]
+then
+   echo "$(date)" ": The ip $HOST is online and has replied" >> /home/ubuntu/bruh.log
+else
+  echo "$(date)" ": The ip $HOST is offline and has not replied" >> /home/ubuntu/bruh.log
+  tail -2 /home/ubuntu/bruh.log | mail -s "BadPing" ubuntu@localhost.us-east-2.compute.internal
+
+fi
+#EOF
+
+cap=20
+
+current_latency=$(ping -c 4 8.8.8.8 | tail -1| awk -F '/' '{print $5}' | cut -d"." -f1)
+if [ $current_latency == 20.0 ]
+then
+        echo "$(date)" ": Latency is High" >> /home/ubuntu/bruh.log
+        tail -2 /home/ubuntu/bruh.log | mail -s "HighLatency" ubuntu@localhost.us-east-2.compute.internal
+else
+        echo "$(date)" ": Latency is normal" >> /home/ubuntu/bruh.log
+fi
