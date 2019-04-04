@@ -1,0 +1,26 @@
+from scapy.all import sniff
+
+doubler = lambda x: x * 2
+for i in range(0,5):
+	print(doubler(i))
+
+sniff(count=10, prn=lambda packet: packet.show()) # print contents
+
+mailsniff = sniff(filter="tcp port 110 or tcp port 25 or tcp port 143",
+	offline='/root/Desktop/POP.pcap',
+	store=True)
+
+mailsniff[0].show
+mailsniff[0]['IP'].show()
+mailsniff[0]['TCP'].show()
+mailsniff[0]['TCP'].payload
+
+def print_credentials(packet):
+	if "SSN" in packet.payload:
+		print(packet.payload)
+
+
+sniff(filter="tcp port 25 or tcp port 110 or tcp port 143",
+	offline='/root/Desktop/SMTP.pcap',
+	store=False,
+	prn=print_credentials)
