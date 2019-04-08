@@ -71,7 +71,7 @@ try:
         # create an IP header from the first 32 bytes of the buffer
         ip_header = IP(bytes(raw_buffer))
         # print out the protocol that was detected and the hosts
-        file.write("Protocol: %s %s -> %s" % (ip_header.protocol, ip_header.src_address,
+        file.write("Protocol: %s %s -> %s\n" % (ip_header.protocol, ip_header.src_address,
                                          ip_header.dst_address))
 
 
@@ -82,7 +82,7 @@ try:
             buf = raw_buffer[offset:offset + sizeof(ICMP)]
             # create our ICMP structure
             icmp_header = ICMP(buf)
-            file.write("ICMP -> Type: %d Code: %d" % (icmp_header.type, icmp_header.code))
+            file.write("ICMP -> Type: %d Code: %d\n" % (icmp_header.type, icmp_header.code))
 
 
 
