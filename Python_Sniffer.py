@@ -50,7 +50,6 @@ if os.name == "nt":
 
 try:
     while True:
-        file = open("week10.txt", "a+")
         # read in a packet
         raw_buffer = sniffer.recvfrom(65535)[0]
         # create an IP header from the first 32 bytes of the buffer
