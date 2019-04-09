@@ -16,8 +16,9 @@ mailsniff[0]['TCP'].show()
 mailsniff[0]['TCP'].payload
 
 def print_credentials(packet):
-	if "SSN" in packet.payload:
+	if "SSN" in str(packet.payload):
 		print(packet.payload)
+		print(" ")
 
 
 sniff(filter="tcp port 25 or tcp port 110 or tcp port 143",
