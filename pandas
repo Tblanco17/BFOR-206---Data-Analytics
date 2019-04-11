@@ -1,0 +1,46 @@
+#python3 pandas, make sure csv is in the right place
+import numpy as np
+import pandas as pd
+from matplotlib.pyplot import hist
+
+#######################################################
+
+matrix = np.random.randint(0,100,size=(100, 4))
+print(matrix)
+print(matrix[90:100,0])
+
+random_df = pd.DataFrame(matrix, columns=list('ABCD'))
+random_df['A']
+random_df['A'].plot.hist()
+############################################################
+
+# generate 100 observations from random normal distribution 
+# with mean of 5 and SD of 2
+new_col = np.random.normal(loc=5, scale=2, size=100)
+# add it as a new column to our dataframe
+random_df['E'] = new_col
+random_df['E'].plot.hist()
+#############################################################
+
+labels = np.random.choice(['A_1', 'A_2', 'B_1', 'B_2'], size=100)
+random_df['labels'] = labels
+list(random_df)
+################################################################33
+
+label_group = random_df['labels'].str.split('_')
+print(label_group)
+random_df['group'] = label_group.str[0]
+random_df.head()
+########################################################
+
+random_df.describe(include='all')
+random_df.groupby('group')['A', 'B'].mean()
+df_summary = random_df.groupby('group').mean()
+###########################################################
+
+mtcars = pd.read_csv('/home/cdo/mtcars.csv')
+list(mtcars)
+mtcars.describe()
+# rename column with make and model
+mtcars.rename(columns={"Unnamed: 0": 'model'}, inplace=True)
+list(mtcars)
