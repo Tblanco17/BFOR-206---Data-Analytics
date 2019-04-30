@@ -17,5 +17,6 @@ done
 #Tyler Blanco - Spitzley 206
 #Run it by ./lab5.sh <?>  ?= Beingt he number of sequences you would like to perform
 
+#test
 
 
