@@ -52,3 +52,8 @@ with open('/home/ligma/scripts/hackers.log') as file:
 		if re.findall (r'^.*https.*$', line):
 			print(line)
 
+##Number1###
+with open('/home/ligma/scripts/hackers.log') as boy:
+	for line in boy:
+		if "joined" in line:
+			print(line)
